@@ -130,7 +130,7 @@ export default {
   methods: {
     fetchChoferes() {
       axios
-        .get('http://127.0.0.1:8000/api/choferes')
+        .get('http://127.0.0.1:8000/web-api/choferes')//cambiar api por web-api
         .then(response => {
           this.choferes = response.data;
         })
@@ -152,7 +152,7 @@ export default {
       }).then(result => {
         if (result.isConfirmed) {
           axios
-            .delete(`http://127.0.0.1:8000/api/choferes/${id}`)
+            .delete(`http://127.0.0.1:8000/web-api/choferes/${id}`)
             .then(response => {
               if (response.data.success) {
                 Swal.fire({
@@ -185,7 +185,7 @@ export default {
     },
     guardarCambios(choferEditado) {
       axios
-        .put(`http://127.0.0.1:8000/api/choferes/${choferEditado.id_chofer}`, choferEditado)
+        .put(`http://127.0.0.1:8000/web-api/choferes/${choferEditado.id_chofer}`, choferEditado)
         .then(response => {
           if (response.data.success) {
             Swal.fire({
@@ -217,7 +217,7 @@ export default {
     },
     guardarNuevoChofer(choferNuevo) {
       axios
-        .post('http://127.0.0.1:8000/api/choferes', choferNuevo)
+        .post('http://127.0.0.1:8000/web-api/choferes', choferNuevo)
         .then(response => {
           if (response.data.success) {
             Swal.fire({
