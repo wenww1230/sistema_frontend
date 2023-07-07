@@ -135,8 +135,14 @@ export default {
           this.choferes = response.data;
         })
         .catch(error => {
-          console.error(error);
+          console.error(error.response.data.message);
+          //mostrar alerta en caso de errores en la carga
+          Swal.fire({
+          text: error.response.data.message,
+          icon: 'warning',
+        })
         });
+
     },
     abrirDialogoCrear() {
       this.dialogCrearVisible = true;
